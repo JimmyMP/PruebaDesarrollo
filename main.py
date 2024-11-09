@@ -11,7 +11,7 @@ load_dotenv()
 # Configura tu token de acceso de GitHub y la API Key de ChatGPT
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 CHATGPT_API_KEY = os.getenv("CHATGPT_API_KEY")
-REPO_URL = 'https://github.com/JimmyMP/TeamManufacturing.github.io'
+REPO_URL = 'https://github.com/JimmyMP/Prueba-Demanda'
 REPO_NAME = REPO_URL.split('/')[-2] + '/' + REPO_URL.split('/')[-1]  # Extrae el nombre del repo
 
 # Inicializa el cliente de GitHub y configura la API de OpenAI
