@@ -1,47 +1,46 @@
-## NOMBRE DEL PROYECTO
-Proyecto de Inteligencia Artificial para Generación de README
+# Proyecto de Inteligencia Artificial para Generación de README
 
-## RESUMEN
-Este proyecto consiste en una herramienta que utiliza inteligencia artificial para generar automáticamente README files para repositorios de GitHub. Utiliza la API de OpenAI para generar contenido de texto de manera automatizada.
+## Resumen
+Este proyecto consiste en una herramienta que utiliza inteligencia artificial para generar automáticamente README files para repositorios de GitHub.
 
-## CÓMO FUNCIONA
-El proyecto utiliza la API de OpenAI para generar texto basado en algunas entradas proporcionadas por el usuario, como el nombre del proyecto, una breve descripción, las características principales, etc. Luego, este texto generado se formatea y se presenta como un README listo para ser utilizado en un repositorio de GitHub.
+## Cómo funciona
+El proyecto utiliza una combinación de bibliotecas de Python como OpenAI, PyGithub, requests, python-dotenv, y tkinter para interactuar con la API de OpenAI, obtener información del repositorio de GitHub y generar el README de forma automatizada.
 
-## PROPÓSITO
-El propósito de este proyecto es facilitar la creación de README files para proyectos en GitHub, ahorrando tiempo a los desarrolladores al generar automáticamente contenido inicial que luego puede ser personalizado según sea necesario.
+## Propósito
+El propósito de este proyecto es facilitar la creación de README files para repositorios de GitHub utilizando inteligencia artificial, ahorrando tiempo y esfuerzo a los desarrolladores.
 
-## DEPENDENCIAS
+## Dependencias
 - openai==0.28.0
 - PyGithub==2.5.0
 - requests==2.31.0
 - python-dotenv==1.0.1
 
-## CONFIGURACIÓN
-El proyecto utiliza variables de entorno para almacenar información sensible, por lo que se debe crear un archivo `.env` con las credenciales necesarias para la API de OpenAI.
+## Configuración
+El archivo `.env` se utiliza para cargar las variables de entorno necesarias para el proyecto. El archivo `.gitattributes` está configurado para auto detectar archivos de texto y realizar normalización de LF.
 
-## INSTALACIÓN
-1. Clonar el repositorio desde GitHub.
-2. Instalar las dependencias mencionadas en el archivo `requirements.txt`.
-3. Crear un archivo `.env` y cargar las variables de entorno necesarias.
+## Instalación
+Para instalar las dependencias del proyecto, se puede utilizar el archivo `requirements.txt` ejecutando el siguiente comando:
+```
+pip install -r requirements.txt
+```
 
-## POSIBLES MEJORES
-- Implementar más opciones de personalización en la generación del README.
-- Mejorar la interfaz de usuario para una experiencia más amigable.
-- Agregar soporte para otros servicios de generación de texto.
-
----
+## Posibles Mejoras
+- Implementar más funcionalidades de inteligencia artificial para generar README más detallados.
+- Mejorar la interfaz de usuario para una mejor experiencia de usuario.
+- Añadir soporte para más plataformas de control de versiones.
 
 ## Capacidades Técnicas Clave
+A continuación se presentan las capacidades técnicas clave y características del proyecto en formato de tabla:
 
-|      | Característica      | Resumen       |
-| :--- | :---:               | :---          |
-| ⚙️  | **Arquitectura**     | Utiliza la API de OpenAI para generar contenido de texto de manera automatizada. |
-| 🔩  | **Calidad del Código** | Utiliza buenas prácticas de programación y sigue los estándares de la API de OpenAI y GitHub. |
-| 📄  | **Documentación**    | El código está documentado y se proporciona un README completo para los usuarios. |
-| 🔌  | **Integraciones**    | Integra la API de OpenAI y PyGithub para la generación y manipulación de texto y repositorios en GitHub. |
-| 🧩  | **Modularidad**      | Está estructurado en módulos que permiten una fácil expansión y mantenimiento del código. |
-| 🧪  | **Pruebas**          | Incluye pruebas unitarias para verificar el correcto funcionamiento de las funcionalidades clave. |
-| ⚡️  | **Rendimiento**      | Optimizado para generar README files de manera eficiente y rápida. |
-| 🛡️  | **Seguridad**        | Utiliza variables de entorno para proteger información sensible y garantizar la seguridad de las credenciales. |
-| 📦  | **Dependencias**     | Especifica las dependencias necesarias en el archivo `requirements.txt` para una fácil instalación. |
-| 🚀  | **Escalabilidad**    | Puede ser escalable agregando más funcionalidades y personalizaciones en la generación de README files. |
+|      | Característica     | Resumen                                                                 |
+| :--- | :---:              | :---                                                                    |
+| ⚙️   | **Arquitectura**    | Utiliza inteligencia artificial para generar README de forma automatizada. |
+| 🔩   | **Calidad del Código** | Se mantiene la calidad del código mediante el uso de buenas prácticas y revisiones. |
+| 📄   | **Documentación**   | Se documentan las funciones y procesos para una mejor comprensión del código. |
+| 🔌   | **Integraciones**   | Integra con la API de OpenAI y GitHub para obtener y generar información. |
+| 🧩   | **Modularidad**     | El código está organizado en módulos para facilitar su mantenimiento y escalabilidad. |
+| 🧪   | **Pruebas**         | Se realizan pruebas unitarias y de integración para garantizar el funcionamiento correcto. |
+| ⚡️   | **Rendimiento**     | Se optimiza el rendimiento del proceso de generación de README. |
+| 🛡️   | **Seguridad**       | Se implementan medidas de seguridad para proteger las credenciales y datos sensibles. |
+| 📦   | **Dependencias**    | Se gestionan las dependencias del proyecto a través del archivo `requirements.txt`. |
+| 🚀   | **Escalabilidad**   | El proyecto está diseñado para ser escalable y poder añadir nuevas funcionalidades en el futuro. |

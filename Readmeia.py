@@ -6,6 +6,7 @@ import os
 from dotenv import load_dotenv
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import font
 
 # Cargar las variables de entorno desde el archivo .env
 load_dotenv()
@@ -108,18 +109,32 @@ def run_async_main(repo_url):
 # Configuración de la interfaz Tkinter
 root = tk.Tk()
 root.title("Generador de README")
-root.geometry("400x200")
+root.geometry("600x250")
+root.configure(bg="#f4f4f9")
+
+# Personalización de fuentes y colores
+title_font = font.Font(family="Helvetica", size=14, weight="bold")
+label_font = font.Font(family="Helvetica", size=10)
+button_font = font.Font(family="Helvetica", size=10, weight="bold")
+
+# Frame para centrar el contenido
+frame = tk.Frame(root, bg="#ffffff", bd=2, relief="solid", padx=20, pady=20)
+frame.pack(pady=20)
 
 # Etiqueta y entrada para el enlace de GitHub
-label = tk.Label(root, text="Ingrese el enlace del repositorio de GitHub:")
-label.pack(pady=10)
+title_label = tk.Label(frame, text="Generador de README para Repositorios de GitHub", font=title_font, bg="#ffffff")
+title_label.pack(pady=10)
 
-entry = tk.Entry(root, width=50)
+label = tk.Label(frame, text="Ingrese el enlace del repositorio de GitHub:", font=label_font, bg="#ffffff")
+label.pack(pady=5)
+
+entry = tk.Entry(frame, width=50, font=label_font, relief="solid", bd=1)
 entry.pack(pady=5)
 
 # Botón para iniciar la generación del README
-generate_button = tk.Button(root, text="Generar README", command=lambda: run_async_main(entry.get()))
-generate_button.pack(pady=20)
+generate_button = tk.Button(frame, text="Generar README", font=button_font, bg="#4CAF50", fg="white", 
+                            activebackground="#45a049", command=lambda: run_async_main(entry.get()))
+generate_button.pack(pady=15, ipadx=10, ipady=5)
 
 # Ejecuta la aplicación Tkinter
 root.mainloop()
