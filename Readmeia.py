@@ -4,19 +4,18 @@ from github import Github
 import requests
 import os
 from dotenv import load_dotenv
+import tkinter as tk
+from tkinter import messagebox
 
 # Cargar las variables de entorno desde el archivo .env
 load_dotenv()
 
-# Configura tu token de acceso de GitHub y la API Key de ChatGPT
+# Configura la API Key de OpenAI y el token de GitHub
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 CHATGPT_API_KEY = os.getenv("CHATGPT_API_KEY")
-REPO_URL = 'https://github.com/JimmyMP/PruebaDesarrollo'
-REPO_NAME = REPO_URL.split('/')[-2] + '/' + REPO_URL.split('/')[-1]  # Extrae el nombre del repo
 
 # Inicializa el cliente de GitHub y configura la API de OpenAI
 g = Github(GITHUB_TOKEN)
-repo = g.get_repo(REPO_NAME)
 openai.api_key = CHATGPT_API_KEY
 
 # Función para recorrer todos los archivos y carpetas del repositorio
@@ -53,7 +52,7 @@ def read_files(files):
 # Función asincrónica para generar el README usando la API de ChatGPT
 async def generate_readme(file_contents):
     prompt_base = """
-    ¡Hola! Por favor, Haz un resumen del proyecto, como funciona, para que es, Titulos, Dependencias, Configuración, instalación, posibles mejoras y más cosas sobre el proyecto, todo para un README de Github. Ademas de eso,
+    ¡Hola! Por favor, Haz un NOMBRE DE PROYECTO, RESUMEN del proyecto, COMO FUNCIONA, PROPOSITO, DEPENDENCIAS, CONFIGURACIÓN, INSTALACIÓN, POSIBLES MEJORES y más cosas sobre el proyecto, todo para un README de Github. Ademas de eso,
     analiza las capacidades técnicas clave y las características del proyecto y descríbelas en formato de tabla en Markdown:
 
     |      | Característica   | Resumen       |
@@ -74,8 +73,7 @@ async def generate_readme(file_contents):
     La información con la que llenaras la informacion es:
 """
     combined_text = prompt_base + "\n\n".join([f"{path}: {content[:200]}" for path, content in file_contents.items()])
-    with open("prompt.txt", "w", encoding="utf-8") as f:
-        f.write(combined_text)
+    
     # Realiza la llamada a la API de ChatGPT con el contenido combinado como prompt
     response = await openai.ChatCompletion.acreate(
         model="gpt-3.5-turbo",
@@ -90,18 +88,38 @@ async def generate_readme(file_contents):
     return response['choices'][0]['message']['content'].strip()
 
 # Función principal asincrónica
-async def main():
+async def main(repo_url):
+    repo_name = repo_url.split('/')[-2] + '/' + repo_url.split('/')[-1]
+    repo = g.get_repo(repo_name)
     files = get_repo_contents(repo)
-    print(files)
     file_contents = read_files(files)
-    # Llama a `generate_readme` usando await
     readme_content = await generate_readme(file_contents)
     
     # Guarda el README generado en un archivo local
     with open("README.md", "w", encoding="utf-8") as f:
         f.write(readme_content)
 
-    print("README generado y guardado como README.md")
+    messagebox.showinfo("Éxito", "README generado y guardado como README.md")
 
-# Ejecuta la función principal asincrónica
-asyncio.run(main())
+# Función para ejecutar la función principal asincrónica desde Tkinter
+def run_async_main(repo_url):
+    asyncio.run(main(repo_url))
+
+# Configuración de la interfaz Tkinter
+root = tk.Tk()
+root.title("Generador de README")
+root.geometry("400x200")
+
+# Etiqueta y entrada para el enlace de GitHub
+label = tk.Label(root, text="Ingrese el enlace del repositorio de GitHub:")
+label.pack(pady=10)
+
+entry = tk.Entry(root, width=50)
+entry.pack(pady=5)
+
+# Botón para iniciar la generación del README
+generate_button = tk.Button(root, text="Generar README", command=lambda: run_async_main(entry.get()))
+generate_button.pack(pady=20)
+
+# Ejecuta la aplicación Tkinter
+root.mainloop()
