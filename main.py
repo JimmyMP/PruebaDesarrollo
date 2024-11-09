@@ -11,7 +11,7 @@ load_dotenv()
 # Configura tu token de acceso de GitHub y la API Key de ChatGPT
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 CHATGPT_API_KEY = os.getenv("CHATGPT_API_KEY")
-REPO_URL = 'https://github.com/JimmyMP/Prueba-Demanda'
+REPO_URL = 'https://github.com/JimmyMP/PruebaDesarrollo'
 REPO_NAME = REPO_URL.split('/')[-2] + '/' + REPO_URL.split('/')[-1]  # Extrae el nombre del repo
 
 # Inicializa el cliente de GitHub y configura la API de OpenAI
@@ -53,7 +53,7 @@ def read_files(files):
 # Función asincrónica para generar el README usando la API de ChatGPT
 async def generate_readme(file_contents):
     prompt_base = """
-    ¡Hola! Por favor, Haz un resumen del proyecto, Titulos, Dependencias, Configuración, instalación, posibles mejoras y más cosas sobre el proyecto. Ademas de eso,
+    ¡Hola! Por favor, Haz un resumen del proyecto, como funciona, para que es, Titulos, Dependencias, Configuración, instalación, posibles mejoras y más cosas sobre el proyecto, todo para un README de Github. Ademas de eso,
     analiza las capacidades técnicas clave y las características del proyecto y descríbelas en formato de tabla en Markdown:
 
     |      | Característica   | Resumen       |

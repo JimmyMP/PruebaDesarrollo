@@ -1,0 +1,39 @@
+
+    ¡Hola! Por favor, Haz un resumen del proyecto, como funciona, para que es, Titulos, Dependencias, Configuración, instalación, posibles mejoras y más cosas sobre el proyecto, todo para un README de Github. Ademas de eso,
+    analiza las capacidades técnicas clave y las características del proyecto y descríbelas en formato de tabla en Markdown:
+
+    |      | Característica   | Resumen       |
+    | :--- | :---:            | :---          |
+    | ⚙️  | **Arquitectura**   | <ul><li>Hecho 1</li><li>Hecho 2</li><li>Hecho 3</li></ul> |
+    | 🔩 | **Calidad del Código** | <ul><li>Hecho 1</li><li>Hecho 2</li><li>Hecho 3</li></ul> |
+    | 📄 | **Documentación**  | <ul><li>Hecho 1</li><li>Hecho 2</li><li>Hecho 3</li></ul> |
+    | 🔌 | **Integraciones**  | <ul><li>Hecho 1</li><li>Hecho 2</li><li>Hecho 3</li></ul> |
+    | 🧩 | **Modularidad**    | <ul><li>Hecho 1</li><li>Hecho 2</li><li>Hecho 3</li></ul> |
+    | 🧪 | **Pruebas**        | <ul><li>Hecho 1</li><li>Hecho 2</li><li>Hecho 3</li></ul> |
+    | ⚡️  | **Rendimiento**    | <ul><li>Hecho 1</li><li>Hecho 2</li><li>Hecho 3</li></ul> |
+    | 🛡️ | **Seguridad**      | <ul><li>Hecho 1</li><li>Hecho 2</li><li>Hecho 3</li></ul> |
+    | 📦 | **Dependencias**   | <ul><li>Hecho 1</li><li>Hecho 2</li><li>Hecho 3</li></ul> |
+    | 🚀 | **Escalabilidad**  | <ul><li>Hecho 1</li><li>Hecho 2</li><li>Hecho 3</li></ul> |
+
+    Esta tabla debe ser llenada con los datos que te daré a continuación, lo cual es un repositorio de github y sus archivos, revisalo y llena la tabla con lo que te parezca.
+    Completa cada fila con información relevante sobre el código, como características de arquitectura, calidad del código, documentación, integraciones, modularidad, pruebas, rendimiento, seguridad, dependencias y escalabilidad.
+    La información con la que llenaras la informacion es:
+.env: GITHUB_TOKEN=
+CHATGPT_API_KEY=
+
+
+.gitattributes: # Auto detect text files and perform LF normalization
+* text=auto
+
+
+main.py: import openai
+import asyncio
+from github import Github
+import requests
+import os
+from dotenv import load_dotenv
+
+# Cargar las variables de entorno desde el archivo .env
+load_dotenv()
+
+# Configura tu t
