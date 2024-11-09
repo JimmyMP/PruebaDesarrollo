@@ -53,7 +53,7 @@ def read_files(files):
 # Función asincrónica para generar el README usando la API de ChatGPT
 async def generate_readme(file_contents):
     prompt_base = """
-    ¡Hola! Por favor, Haz un NOMBRE DE PROYECTO, RESUMEN del proyecto, COMO FUNCIONA, PROPOSITO, DEPENDENCIAS, CONFIGURACIÓN, INSTALACIÓN, POSIBLES MEJORES y más cosas sobre el proyecto, todo para un README de Github. Ademas de eso,
+    ¡Hola! Por favor, comportate como un documentador de proyectos github profesional, Haz un NOMBRE DE PROYECTO, RESUMEN del proyecto, COMO FUNCIONA en caso haya tkinter, PROPOSITO, DEPENDENCIAS, CONFIGURACIÓN, INSTALACIÓN, POSIBLES MEJORES y más cosas sobre el proyecto, todo para un README de Github. Ademas de eso,
     analiza las capacidades técnicas clave y las características del proyecto y descríbelas en formato de tabla en Markdown:
 
     |      | Característica   | Resumen       |
